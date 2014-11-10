@@ -1,7 +1,7 @@
 Templates for Mailman
 ==================
 
-[…looks like this](http://i.imgur.com/fnXCm7q.png)
+![…looks like this](http://i.imgur.com/fnXCm7q.png)
 
 ##How To:
 Go to your Mailinglist’s administrative Interface; Click "Edit the public HTML pages and text files" (right, above "Logout"); 
