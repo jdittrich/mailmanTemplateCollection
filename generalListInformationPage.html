@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><MM-List-Name></title>
+	<style>
+			body, html{
+			margin:0;
+			padding:0;
+			background: #e0e0e0;
+			font-size: 0.9em;
+		}
+
+		body{
+			font-size: 0.9em;
+			color:#171717;
+		}
+
+		#wrapper{
+			width: auto;
+			max-width: 700px;
+			margin: 1em auto;
+			padding: 1em 3em;
+			border:#d3d3d3 solid 1px;
+			background: white;
+			border-radius: 10px;
+			font-family: "Open Sans",sans-serif;
+		}
+
+		div.submitContainer input {
+		font-weight: bold;
+		height: 2.5em;
+		margin: 0.5em 0;
+		}
+
+		p{
+			margin: 0.5em auto;
+			line-height: 150%;
+		}
+
+		input{
+			vertical-align: text-bottom;
+			margin-left:0;
+		}
+
+		input[type="CHECKBOX"]{
+			position: relative;
+			top: 0.12em;
+		}
+
+		input[type="Password"], input[type="TEXT"], input[type="SUBMIT"]{
+			vertical-align:middle;
+			margin-right:0.5em;
+		}
+
+		div.alignInput{
+			display:table;
+		}
+
+		div.alignInput label{
+			display:table-row;
+			text-align:right;
+		}
+
+		p, h1, h2, h3, h4, form {
+			font-weight:normal
+		}
+
+		h1{
+			font-size:2.5em;
+			border-bottom:2px solid lightgray;
+		}
+
+		h2{
+			font-size:1.7em;
+			border-bottom: 1px solid lightgray;
+			margin-top: 2em;
+		}
+		
+		fieldset p {
+			margin-top: 0.25em;
+		}
+		
+		fieldset.fieldsetlight {
+			border:none;
+			border-left: lightgray 1px solid;
+			margin: 1em 0 0 -6px;
+			padding: 0 0 0 5px;
+		}
+		
+		fieldset.fieldsetlight>p {
+			margin-top: 0;
+		}
+		
+		fieldset legend {
+			font-weight: bold;
+		}
+		
+		label {
+			display: block;
+		}
+		
+		center{
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h1 id="mainHead"><MM-List-Name></h1>
+		<p><em><MM-List-Description></em></p>
+		<p><MM-List-Info></p>
+		<p>If you subscribed to the list and send an email to <A HREF="mailto:<MM-Posting-Addr>"><MM-Posting-Addr></A>, all other subscribers will get this eMail (<a href="http://www.list.org/mailman-member/node5.html">more on Mailinglists</a>).
+		</p>
+		
+		<div class="section">
+			<h2>Subscribe</h2>
+			<MM-Subscribe-Form-Start>
+			<div class="alignInput">
+			<fieldset class="fieldsetlight">
+				<label>Your e-mail address <MM-Subscribe-Box></label>
+				<label>Your Name (optional) <mm-fullname-box> </label>
+			</fieldset>
+			<!-- optional password fields
+			<fieldset class="fieldsetlight"><label>Password:<MM-New-Password-Box></label>
+			<label>Confirm Password:<MM-Confirm-Password></label></fieldset>
+			-->
+			<!-- optional language selector (only if you have multiple languages)
+<label>Preferred language:<MM-list-langs></label>
+			-->
+			</div>
+			<fieldset class="fieldsetlight">
+				<p><mm-digest-question-start> Would you like to receive list mail batched in a daily digest?<MM-Reminder></p>
+			<label><MM-Undigest-Radio-Button> No </label>
+			<label><MM-Digest-Radio-Button>  Yes</label> 
+			<mm-digest-question-end>
+			</fieldset>
+
+			<p><MM-List-Subscription-Msg></p>
+			<p><MM-Subscribe-Button><MM-Form-End></p>
+		</div>
+		<div class="section">
+			<h2>Unsubscribe (or change your settings)</h2>
+			<MM-Options-Form-Start><MM-Editing-Options><MM-Form-End>
+		</div>
+		<div class="section">
+			<h2>Who else is on this list?</h2>
+			<!-- MM-Roster-Form gives easy access to the subscribers list from the main list info page -->
+			<!-- You can comment the line below out for when you don't need to give access to the subscribers list -->
+			<!-- For example for announcement mailing lists or mailing lists with a large number of subscribers  -->
+			<MM-Roster-Form-Start><MM-Roster-Option><MM-Form-End>
+		</div>
+		<div class="section">
+			<h2>Archive - see all previous messages</h2>
+			<p>Visit the <MM-Archive><MM-List-Name> Archives</MM-Archive>. <MM-Restricted-List-Message></p>
+		</div>
+		<div class="section">
+			<h2>Who looks after this list</h2>
+			<p><MM-Mailman-Footer></p>
+		</div>
+	</div>
+	<div class="license">
+		This template ist licensed as <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons 4.0 BY</a>
+		Based on a template by <a href="https://github.com/quimgil">quimgil</a> <a href="https://github.com/quimgil/mailman-templates">original source</a></p>
+	</div>
+</body>
+</html>

@@ -9,26 +9,73 @@
 			margin:0;
 			padding:0;
 			background: #e0e0e0;
+      font-size: 0.9em;
 		}
+
+    body{
+      font-size: 0.9em;
+      color:#171717;
+    }
 
 		#wrapper{
 			width: auto;
-			max-width: 800px;
-			margin: 0px auto;
-			padding: 1em;
-			boder:#d3d3d3 solid 1px;
+			max-width: 700px;
+			margin: 1em auto;
+			padding: 1em 3em;
+			border:#d3d3d3 solid 1px;
 			background: white;
+      border-radius: 10px;
+      font-family: "Open Sans",sans-serif;
 		}
 
+    div.submitContainer input {
+    font-weight: bold;
+    height: 2.5em;
+    margin: 0.5em 0;
+    }
 
-		p, h1, h2, h3, h4, form {
-			font-family: "Open Sans",sans-serif;
-		}
+    p{
+      margin: 0.5em auto;
+      line-height: 150%;
+    }
 
-		h2{
-			border-bottom: 2px solid gray;
-			margin-top: 3em;
-		}
+    input{
+      vertical-align: text-bottom;
+      margin-left:0;
+    }
+
+    input[type="CHECKBOX"]{
+      position: relative;
+      top: 0.12em;
+    }
+
+    input[type="Password"], input[type="Text"]{
+      vertical-align:middle;
+    }
+
+    div.alignInput{
+      display:table;
+    }
+
+    div.alignInput label{
+      display:table-row;
+      text-align:right;
+    }
+
+    p, h1, h2, h3, h4, form {
+      font-weight:normal
+    }
+
+    h1{
+      font-size:2.5em;
+      border-bottom:2px solid lightgray;
+    }
+
+    h2{
+      font-size:1.7em;
+      border-bottom: 1px solid lightgray;
+      margin-top: 2em;
+    }
 
 		fieldset p {
 			margin-top: 0.25em;
@@ -39,15 +86,17 @@
 		label {
 			display: block;
 		}
-		.globalChange {
+		label.globalChange {
 			display: block;
 			margin-top: 0.5em;
 		}
 
 		form fieldset {
-			border: 1px solid gray;
-			margin-top: 2em;
-		}
+			border: 1px solid lightgray;
+			margin-left: -1em;
+      margin-top: 2em;
+      padding-left: 1em;
+  		}
 
 	</style>
 </head>
@@ -55,10 +104,10 @@
 <body>
 	<div id="wrapper">
 	<header>
-		<h1>
+    <h1 id="mainHead">
 			<MM-List-Name> mailing list membership configuration for <MM-Presentable-User>
 		</h1>
-		<div><MM-Form-Start><mm-logout-button><MM-Form-End></div>
+		<div id="logoutForm"><MM-Form-Start><mm-logout-button><MM-Form-End></div>
 		<p>
 			Your subscription status, password, and options for the <MM-List-Name> mailing list.
 		</p>
@@ -88,32 +137,25 @@
 				You can also optionally set or change your real name (i.e. <em>John Smith</em>).
 			</p>
 
-			<p>
-				If you want to make the membership changes for all the
-				lists that you are subscribed to at <mm-host>, turn on the
-				<em>Change globally</em> check box.
-			</p>
 
-			<fieldset>
-				<label>New address: <mm-new-address-box></label>
-				<label>Again to confirm: <mm-confirm-address-box> </label>
-			</fieldset>
-
-
-			<label>Your name (optional):<mm-fullname-box></label>
-			<label class="globalChange">change Name globally <mm-global-change-of-address></label>
+      <div class="alignInput">
+  			<label>New address: <mm-new-address-box></label>
+  			<label>Again to confirm: <mm-confirm-address-box> </label>
+        <br>
+  			<label>Your name (optional):<mm-fullname-box></label>
+      </div>
+			<label class="globalChange"><mm-global-change-of-address>Change Name  password for all subscriptions on <MM-Host> </label>
 
 		</div>
 
 		<div id="unsubscribeSection">
 			<h2>Unsubscribing from <MM-List-Name></h2>
 			<p>Turn on the confirmation checkbox and hit this button to
-			unsubscribe from this mailing list. <strong>Warning:</strong>
+			unsubscribe from this mailing list. <br> <strong>Warning:</strong>
 			This action will be taken immediately!</p>
 
-			<fieldset>
 			<MM-Unsubscribe-Button>
-			</fieldset>
+
 		</div>
 
 		<div id="otherSubsSection">
@@ -123,23 +165,28 @@
 			make the same membership option changes to this other
 			subscriptions.</p>
 
-
 			<MM-Other-Subscriptions-Submit>
 
 		</div>
 
 		<div id="passwordSection">
 			<h2> Your Internationals-list Password </h2>
-			<h3>I forgot my password!</h3>
-			<p>Click this button to have your password emailed to your membership address. </p>
+
+      <fieldset>
+			<legend>I forgot my password!</legend>
+      <p>Click this button to have your password emailed to your membership address. </p>
 			<MM-Umbrella-Notice><!-- does anyone know what this does?-->
 			<MM-Email-My-Pw>
+      </fieldset>
 
-			<h3>Change Your Password</h3>
 			<fieldset>
-				<label>New Password: <MM-New-Pass-Box></label>
-				<label>Again to confirm: <MM-Confirm-Pass-Box></label>
-				<label class="globalChange"><mm-global-pw-changes-button> Change password on for all subscriptions on <MM-Host></label>
+
+        <legend>Change Your Password</legend>
+				<div class="alignInput">
+          <label class="alignInput1">New Password: <MM-New-Pass-Box></label>
+				  <label class="alignInput1">Again to confirm: <MM-Confirm-Pass-Box></label>
+				</div>
+        <label class="globalChange"><mm-global-pw-changes-button> Change password for all subscriptions on <MM-Host></label>
 				<br>
 				<MM-Change-Pass-Button>
 			</fieldset>
@@ -224,8 +271,8 @@ it will not be automatically re-enabled.
 				on this membership roster at all, select <em>Conceal</em> for this option.
 				</p>
 
-				<label>Be visible<MM-Public-Subscription-Button></label>
-				<label>Conceal<MM-Hide-Subscription-Button></label>
+				<label><MM-Public-Subscription-Button>Be visible</label>
+				<label><MM-Hide-Subscription-Button>Conceal</label>
 			</fieldset>
 
 			<fieldset>
@@ -294,5 +341,6 @@ it will not be automatically re-enabled.
 	<MM-Form-End>
 	<MM-Mailman-Footer>
 	</div>
+	<div>License of this template: GPL</div>
 </body>
 </html>
