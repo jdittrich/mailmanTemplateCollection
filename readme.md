@@ -3,7 +3,8 @@ Templates for Mailman
 
 ![…looks like this](http://i.imgur.com/fnXCm7q.png)
 
-##How To:
+## How To:
+
 Go to your Mailinglist’s administrative Interface; Click "Edit the public HTML pages and text files" (right, above "Logout"); 
 
 1. General Informations
